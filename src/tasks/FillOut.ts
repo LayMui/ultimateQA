@@ -12,7 +12,15 @@ export const FillOut = {
         isVisible()
       ),
       Enter.theValue('laymui').into(AutomationPractice.firstNameField()),
-      Enter.theValue('working on qa automation').into(AutomationPractice.firstMessageField()),
-      Click.on(AutomationPractice.firstSubmitButton())
+      Enter.theValue('working on qa automation').into(
+        AutomationPractice.firstMessageField()
+      ),
+      Click.on(AutomationPractice.firstSubmitButton()),
+      Enter.theValue('toh').into(AutomationPractice.secondNameField()),
+      Enter.theValue('working on qa automation').into(
+        AutomationPractice.secondMessageField()
+      ),
+      Enter.theValue('2').into(AutomationPractice.captchaField()),
+      Click.on(AutomationPractice.secondSubmitButton())
     ),
 }
