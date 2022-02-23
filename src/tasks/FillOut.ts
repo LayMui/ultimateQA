@@ -11,8 +11,8 @@ export const FillOut = {
         AutomationPractice.firstSubmitButton(),
         isVisible()
       ),
-       Enter.theValue('laymui').into(AutomationPractice.firstNameField()),
-       Enter.theValue('working on qa automation').into(AutomationPractice.firstMessageField()),
+      Enter.theValue('laymui').into(AutomationPractice.firstNameField()),
+      Enter.theValue('working on qa automation').into(AutomationPractice.firstMessageField()),
       Click.on(AutomationPractice.firstSubmitButton())
     ),
 }

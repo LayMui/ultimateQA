@@ -96,6 +96,7 @@ export const config: WebdriverIOConfig = {
       'goog:chromeOptions': {
         args: [
       //    '--headless',
+          '--disable-notifications',
           '--disable-infobars',
           '--no-sandbox',
           '--disable-gpu',
