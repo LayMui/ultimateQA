@@ -20,7 +20,7 @@ export const FillOut = {
       Enter.theValue('working on qa automation').into(
         AutomationPractice.secondMessageField()
       ),
-      Enter.theValue('2').into(AutomationPractice.captchaField()),
-      Click.on(AutomationPractice.secondSubmitButton())
+     // Enter.theValue('2').into(AutomationPractice.captchaField()),
+     // Click.on(AutomationPractice.secondSubmitButton())
     ),
 }

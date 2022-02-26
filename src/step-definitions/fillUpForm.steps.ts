@@ -1,7 +1,14 @@
 import { Given, Then, When } from "@cucumber/cucumber";
 import { Actor } from "@serenity-js/core";
-import { Navigate, TakeScreenshot } from '@serenity-js/web'
+import { Navigate,Text } from '@serenity-js/web'
+import { AutomationPractice } from "../page-objects/AutomationPractice";
 import { FillOut } from "../tasks/FillOut";
+
+import {
+  Ensure,
+  equals,
+  
+} from '@serenity-js/assertions'
 
 /**
  * Below step definitions use Cucumber Expressions
@@ -20,11 +27,11 @@ Given(
 When(
   '{pronoun} fill up the two forms',
   async (actor: Actor) => {
-      
+    const captcha =  Text.of(AutomationPractice.captchaQuestion()).answeredBy(actor)
+    console.log('Captcha: ' + captcha)
     await actor.attemptsTo(
-      TakeScreenshot.of('before fill out form'),
       FillOut.forms(),
-      TakeScreenshot.of('after fill out form')
+      Ensure.that(Text.of(AutomationPractice.captchaQuestion()), equals('13 + 10'))
     )
   }
 )

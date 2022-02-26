@@ -25,11 +25,12 @@ export const AutomationPractice = {
 
   secondMessageField: () =>
     PageElement.located(By.xpath("//textarea[@id='et_pb_contact_message_1']")),
- 
+
   secondSubmitButton: () =>
     PageElement.located(
       By.xpath(
-        "//div[@id='et_pb_contact_form_1']//button[@name='et_builder_submit_button'][normalize-space()='Submit']")
+        "//div[@id='et_pb_contact_form_1']//button[@name='et_builder_submit_button'][normalize-space()='Submit']"
+      )
     ),
 
   captchaQuestion: () =>
