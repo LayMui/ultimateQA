@@ -9,3 +9,9 @@ chromedriver
 ```
 
 yarn upgrade --latest
+
+
+Hint: Use xpath
+use selectorHub
+
+https://www.youtube.com/watch?v=_fGbJ8u35fg
