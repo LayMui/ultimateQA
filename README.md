@@ -11,7 +11,7 @@ chromedriver
 yarn upgrade --latest
 
 
-Hint: Use xpath
+Hint: Use xpath (an expression that is readable not gibberish)
 use selectorHub
 
 https://www.youtube.com/watch?v=_fGbJ8u35fg
