@@ -3,12 +3,14 @@ import { Actor } from "@serenity-js/core";
 import { Navigate,Text } from '@serenity-js/web'
 import { AutomationPractice } from "../page-objects/AutomationPractice";
 import { FillOut } from "../tasks/FillOut";
-
+import { isVisible, Wait } from '@serenity-js/web'
+import { Duration } from '@serenity-js/core';
 import {
   Ensure,
   equals,
   
 } from '@serenity-js/assertions'
+import { NavigateTo } from "../tasks/NavigateTo";
 
 /**
  * Below step definitions use Cucumber Expressions
@@ -24,14 +26,27 @@ Given(
   }
 )
 
+When('{pronoun} want to fill up forms', async (actor: Actor) => {
+  await actor.attemptsTo(
+    NavigateTo.fillFormsLink(),
+    )  
+})
+
 When(
   '{pronoun} fill up the two forms',
   async (actor: Actor) => {
-    const captcha =  Text.of(AutomationPractice.captchaQuestion()).answeredBy(actor)
-    console.log('Captcha: ' + captcha)
+      Wait.upTo(Duration.ofMilliseconds(500000)).until(
+        AutomationPractice.captchaQuestion(),
+        isVisible()
+      )
+    const captcha = await Text.of(
+      AutomationPractice.captchaQuestion()
+    ).answeredBy(actor)
+      console.log('Captcha: ' + captcha)
+    const total = Number(captcha.split('+')[0]) + Number(captcha.split('+')[1])
+    console.log('Total: ' + total)
     await actor.attemptsTo(
-      FillOut.forms(),
-      Ensure.that(Text.of(AutomationPractice.captchaQuestion()), equals('13 + 10'))
+      FillOut.forms(total.toString()),
     )
   }
 )

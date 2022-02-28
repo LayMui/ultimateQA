@@ -34,5 +34,5 @@ export const AutomationPractice = {
     ),
 
   captchaQuestion: () =>
-    PageElement.located(By.css('.et_pb_contact_captcha_question')),
+    PageElement.located(By.xpath("//span[@class='et_pb_contact_captcha_question']")),
 }

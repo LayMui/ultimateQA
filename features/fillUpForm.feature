@@ -8,6 +8,7 @@ Feature: fill up form
     
     @test
   Scenario Outline: Fill up the form
-    When he fill up the two forms
+    When he want to fill up forms
+    And he fill up the two forms
     Then he should able to submit the forms successfully
   
