@@ -11,6 +11,7 @@ import {
   
 } from '@serenity-js/assertions'
 import { NavigateTo } from "../tasks/NavigateTo";
+import { VerifySubmission } from "../tasks/VerifySubmission";
 
 /**
  * Below step definitions use Cucumber Expressions
@@ -42,16 +43,23 @@ When(
     const captcha = await Text.of(
       AutomationPractice.captchaQuestion()
     ).answeredBy(actor)
-      console.log('Captcha: ' + captcha)
+  //    console.log('Captcha: ' + captcha)
     const total = Number(captcha.split('+')[0]) + Number(captcha.split('+')[1])
-    console.log('Total: ' + total)
     await actor.attemptsTo(
-      FillOut.forms(total.toString()),
+      FillOut.forms('first', 'qa automation', 'second', 'qa automation', total.toString()),
     )
   }
 )
 
 Then(
   '{pronoun} should able to submit the forms successfully',
-  async (actor: Actor) => {}
+  async (actor: Actor) => {   
+  await actor.attemptsTo(
+ //   VerifySubmission.isSentSuccessfully(),
+   
+ )
+     
+     
+
+  }
 )

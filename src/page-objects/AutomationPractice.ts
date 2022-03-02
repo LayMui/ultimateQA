@@ -1,4 +1,6 @@
-import { By, PageElements, PageElement } from '@serenity-js/web'
+import { By, PageElements, PageElement, Text } from '@serenity-js/web'
+import { includes } from '@serenity-js/assertions'
+
 
 export const AutomationPractice = {
   fillOutFormLink: () =>
@@ -34,5 +36,17 @@ export const AutomationPractice = {
     ),
 
   captchaQuestion: () =>
-    PageElement.located(By.xpath("//span[@class='et_pb_contact_captcha_question']")),
+    PageElement.located(
+      By.xpath("//span[@class='et_pb_contact_captcha_question']")
+    ),
+
+  contactForm0: () => PageElement.located(By.id('et_pb_contact_form_0')),
+
+  contactForm2: () => PageElement.located(By.id('et_pb_contact_form_1')),
+
+  successNotification: (message: string) =>
+    PageElements.located(By.id('et_pb_contact_form_1'))
+      .describedAs('success notification')
+      .where(Text, includes(message))
+      .first(),
 }
