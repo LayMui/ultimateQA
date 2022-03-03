@@ -11,7 +11,7 @@ import {
   
 } from '@serenity-js/assertions'
 import { NavigateTo } from "../tasks/NavigateTo";
-import { VerifySubmission } from "../tasks/VerifySubmission";
+
 
 /**
  * Below step definitions use Cucumber Expressions
@@ -54,12 +54,17 @@ When(
 Then(
   '{pronoun} should able to submit the forms successfully',
   async (actor: Actor) => {   
+     const successMessage = 'Thanks for contacting us'
   await actor.attemptsTo(
- //   VerifySubmission.isSentSuccessfully(),
-   
- )
-     
-     
+    Ensure.that(
+      Text.of(AutomationPractice.contactForm0SuccessMessage()),
+      equals(successMessage)
+    ),
 
+    Ensure.that(
+      Text.of(AutomationPractice.contactForm1SuccessMessage()),
+      equals(successMessage)
+    )
+  )
   }
 )

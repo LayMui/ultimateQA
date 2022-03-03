@@ -40,13 +40,23 @@ export const AutomationPractice = {
       By.xpath("//span[@class='et_pb_contact_captcha_question']")
     ),
 
-  contactForm0: () => PageElement.located(By.id('et_pb_contact_form_0')),
+  contactForm0SuccessMessage: () =>
+    PageElement.located(
+      By.xpath(
+        "//div[@id='et_pb_contact_form_0']//p[contains(text(),'Thanks for contacting us')]"
+      )
+    ),
 
-  contactForm2: () => PageElement.located(By.id('et_pb_contact_form_1')),
+  contactForm1SuccessMessage: () =>
+    PageElement.located(
+      By.xpath(
+        "//div[@id='et_pb_contact_form_1']//p[contains(text(),'Thanks for contacting us')]"
+      )
+    ),
 
-  successNotification: (message: string) =>
-    PageElements.located(By.id('et_pb_contact_form_1'))
-      .describedAs('success notification')
-      .where(Text, includes(message))
-      .first(),
+  // successNotification: (message: string) =>
+  //   PageElements.located(By.id('et_pb_contact_form_1'))
+  //     .describedAs('success notification')
+  //     .where(Text, includes(message))
+  //     .first(),
 }
