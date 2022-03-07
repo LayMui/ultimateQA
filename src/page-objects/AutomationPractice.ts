@@ -54,9 +54,4 @@ export const AutomationPractice = {
       )
     ),
 
-  // successNotification: (message: string) =>
-  //   PageElements.located(By.id('et_pb_contact_form_1'))
-  //     .describedAs('success notification')
-  //     .where(Text, includes(message))
-  //     .first(),
 }
